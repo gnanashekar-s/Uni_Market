@@ -17,19 +17,19 @@
         align-items: center;
         background-color: black;
     }
-    .login-form{
+    .Signup-form{
         background-color: rgb(255, 255, 255);
         display: flex;
         font-size: 20px;
         flex-direction: column;
         align-items: center;
-        height: 350px;
+        height: 450px;
         width: 300px;
-        padding: 40px 50px;
+        padding: 20px 50px;
         border-radius: 20px;
     }
     .input-box{
-        
+        display: flex;
         width: 100%;
         padding: 5px;
     }
@@ -45,7 +45,7 @@
         font-size: 15px;
         padding: 5px;
     }
-    .login-button button{
+    .Signup-button button{
         height: 40px;
         width: 80px;
         font-size: 15px;
@@ -56,7 +56,7 @@
         border-radius: 10px;
         background-color: rgb(55, 0, 255);
     }
-    .login-button button:hover{
+    .Signup-button button:hover{
         background-color: black;
         transition: 0.9s;
         cursor: pointer;
@@ -66,23 +66,28 @@
     }
 </style>
 <body>
-    <form class="login-form">
-        <h1>LOGIN</h1>
+    <form class="Signup-form">
+        <h1>REGISTER</h1><div class="input-box">
+            <input type="text" placeholder="First name"/>
+            <input type="text" placeholder="Last name"/>
+        </div>
         <div class="input-box">
             <input type="text" placeholder="Username"/>
         </div>
         <div class="input-box">
+            <input type="email" placeholder="Email"/>
+        </div>
+        <div class="input-box">
             <input type="password" placeholder="Password"/>
         </div>
-        <div class="remember-forgot">
-            <label><input type="checkbox">Remember Me</label>
-            <a href="#">Forgot Password?</a>
+        <div class="input-box">
+            <input type="password" placeholder="Re-enter Password"/>
         </div>
-        <div class="login-button">
-            <button type="submit">Login</button>
+        <div class="Signup-button">
+            <button type="submit">SignUp</button>
         </div>
         <div class="signup">
-            <p>Don't have an account? <a href="signup.html">Register here</a></p>
+            <p>Already have an account? <a href="login.html">SignIn  here</a></p>
         </div>
     </form>
 </body>
