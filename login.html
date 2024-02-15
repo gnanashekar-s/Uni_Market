@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniMarket</title>
+</head>
+<style>
+    *{
+        font-family: arial;
+    }
+    body{
+        margin:0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+    .login-form{
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        font-size: 20px;
+        flex-direction: column;
+        align-items: center;
+        height: 350px;
+        width: 300px;
+        padding: 40px 50px;
+        border-radius: 20px;
+    }
+    .input-box{
+        
+        width: 100%;
+        padding: 5px;
+    }
+    .input-box input{
+        width: 100%;
+        height: 40px;
+    }
+    .remember-forgot{
+
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 15px;
+        padding: 5px;
+    }
+    .login-button button{
+        height: 40px;
+        width: 80px;
+        font-size: 15px;
+        color: white;
+        font-family: arial;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(55, 0, 255);
+    }
+    .login-button button:hover{
+        background-color: black;
+        transition: 0.9s;
+        cursor: pointer;
+    }
+    .signup{
+        font-size: 15px;
+    }
+</style>
+<body>
+    <form class="login-form">
+        <h1>LOGIN</h1>
+        <div class="input-box">
+            <input type="text" placeholder="Username"/>
+        </div>
+        <div class="input-box">
+            <input type="password" placeholder="Password"/>
+        </div>
+        <div class="remember-forgot">
+            <label><input type="checkbox">Remember Me</label>
+            <a href="#">Forgot Password?</a>
+        </div>
+        <div class="login-button">
+            <button type="submit">Login</button>
+        </div>
+        <div class="signup">
+            <p>Don't have an account? <a href="signup.html">Register here</a></p>
+        </div>
+    </form>
+</body>
+</html>
