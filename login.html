@@ -70,15 +70,19 @@
         flex-direction: column;
         align-items: center;
     }
+    #continue{
+        
+    }
 </style>
 <body>
     <form class="login-form">
+        
         <h1>LOGIN</h1>
-        <div class="input-box">
+        <div id="email" class="input-box">
             <input type="text" placeholder="Email"/>
         </div>
-        <div class="login-button">
-            <button type="submit">Continue </button>
+        <div id="continue" class="login-button">
+            <button onclick="hideEmail();" type="submit">Continue</button>
         </div>
         <div class="login">
             <div class="input-box">
@@ -99,6 +103,13 @@
     </form>
 </body>
 <script>
-     
+     var continue_button = document.getElementById('continue');
+     function hideEmail(){
+        continue_button.remove()
+        let email = document.getElementById('email');
+        email.style.display="none";
+        let  dont_have_account = document.querySelector('.signup');
+        dont_have_account
+     }
 </script>
 </html>
