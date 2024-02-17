@@ -60,3 +60,22 @@ transition: 0.8s;
     transition: 0.8s;
     cursor: pointer;
 }
+.features{
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    padding: 40px;
+    font-weight: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.features ul{
+    display: flex ;
+    justify-content: space-evenly;
+}
+.features li{
+    padding: 20px;
+    list-style: none;
+}
