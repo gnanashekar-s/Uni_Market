@@ -15,6 +15,7 @@ body{
 .navbar ul{
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 .navbar ul li{
     list-style: none;
@@ -45,7 +46,7 @@ transition: 0.8s;
     padding: 30px;
     font-weight:10;
 }
-.get-started button{
+.get-started-button{
     padding: 10px;
     background-color: white;
     font-size: 20px;
@@ -54,7 +55,22 @@ transition: 0.8s;
     color:rgb(47, 64, 173) ;
     border-radius: 10px;
 }
-.get-started button:hover{
+.get-started-button:hover{
+    background-color: rgb(106, 255, 106);
+    color: black;
+    transition: 0.8s;
+    cursor: pointer;
+}
+.get-started-nav{
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-weight:100;
+    border: none;
+    color:rgb(255, 255, 255) ;
+    border-radius: 10px;
+}
+.get-started-nav:hover{
     background-color: rgb(106, 255, 106);
     color: black;
     transition: 0.8s;
