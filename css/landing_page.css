@@ -95,3 +95,10 @@ transition: 0.8s;
     padding: 20px;
     list-style: none;
 }
+.description{
+    color:white;
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
