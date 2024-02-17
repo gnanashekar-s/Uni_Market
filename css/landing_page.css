@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+}
+body{
+    background-color: black;
+}
+.navbar{
+    display: flex;
+    color: white;
+    background-color: rgb(255, 255, 255);
+    justify-content: space-around;
+}
+.navbar ul{
+    display: flex;
+    justify-content: flex-end;
+}
+.navbar ul li{
+    list-style: none;
+    padding: 30px;
+}
+a{
+    color: white;
+    text-decoration: none;
+    
+}
+.navbar ul li a{
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+.navbar ul li a:hover{
+
+background-color: darkblue;
+color: white;
+transition: 0.8s;
+}
+.get-started{
+    background-color:rgb(47, 64, 173) ;
+    color: white;
+    text-align: center;
+    font-size: 90px;
+    padding: 30px;
+    font-weight:10;
+}
+.get-started button{
+    padding: 10px;
+    background-color: white;
+    font-size: 20px;
+    font-weight:100;
+    border: none;
+    color:rgb(47, 64, 173) ;
+    border-radius: 10px;
+}
+.get-started button:hover{
+    background-color: rgb(106, 255, 106);
+    color: black;
+    transition: 0.8s;
+    cursor: pointer;
+}
