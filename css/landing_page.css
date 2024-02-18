@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: arial;
+    box-sizing:border-box;
 }
 body{
     background-color: black;
@@ -97,8 +98,30 @@ transition: 0.8s;
 }
 .description{
     color:white;
-    padding: 20px;
+    padding: 40px;
     font-size: 20px;
+    font-weight: 100;
+}
+.slide-wrapper{
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content:center;
+    padding: 40px;
+    background-color: rgb(255, 92, 92);
+}
+.slide-container{
+    width:40%;
+    height: 500px;
+    position:relative;
+    margin: auto;
+    overflow: hidden;
+}
+.slider{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 40px;
+}
+.slider img{
+    border-radius: 40px;
 }
