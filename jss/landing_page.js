@@ -12,7 +12,7 @@ slides.forEach(
 )
 const goPrev = ()=>{
     if(counter<=((no_of_images-1)*-1)){
-        counter=0;
+        counter=1;
     }
     counter--
     console.log(counter)
@@ -20,7 +20,7 @@ const goPrev = ()=>{
 }
 const goNext = ()=>{
     if(counter>=0){
-        counter = (no_of_images-1)*-1
+        counter = (no_of_images)*-1
     }
         counter++
         console.log(counter)
