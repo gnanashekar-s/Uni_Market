@@ -139,3 +139,36 @@ footer li{
 footer a{
     color: black;
 }
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+@media screen and (max-width:600px) {
+    .get-started{
+        font-size: 20px;
+    }
+    .get-started-button{
+        font-size: 10px;
+    }
+    .features{
+    font-size: 10px;
+    }
+    .description{
+        font-size: 10px;
+    }
+    .navbar ul li{
+        display:none;
+    }
+    .slide-container{
+        width: 250px;
+        height: 250px;
+        position:relative;
+        margin: auto;
+        overflow:hidden;
+    }
+}
+@media screen and (max-width:671px) {
+    .navbar ul li{
+        display:none;
+    }
+}
