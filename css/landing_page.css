@@ -126,3 +126,16 @@ transition: 0.8s;
 .slider img{
     border-radius: 40px;
 }
+footer{
+    background-color: white;
+    color: black;
+    padding: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+footer li{
+    list-style: none;
+}
+footer a{
+    color: black;
+}
