@@ -23,7 +23,7 @@
         font-size: 20px;
         flex-direction: column;
         align-items: center;
-        height: 450px;
+        height: 60%;
         width: 300px;
         padding: 20px 50px;
         border-radius: 20px;
@@ -64,7 +64,10 @@
     .signup{
         font-size: 15px;
     }
-
+    #re-enter{
+        display: flex;
+        flex-direction: column;
+    }
 
 </style>
 <body>
@@ -80,7 +83,11 @@
             <input type="email" placeholder="Email"/>
         </div>
         <div class="input-box">
-            <input type="password" placeholder="Re-enter Password"/>
+            <input id="password" type="password" placeholder="Password"/>
+        </div>
+        <div oninput="check()" id="Re-enter" class="input-box">
+            <input id="re-password" type="password" placeholder="Re-enter Password"/>
+            <p id="error" style="color: red;"></p>
         </div>
         <div class="Signup-button">
             <button type="submit">SignUp</button>
@@ -90,5 +97,22 @@
         </div>
     </form>
 </body>
+<script>
+     var password = document.getElementById('password')
+     var re_password = document.getElementById('re-password')
+     function check(){
+        let error =  document.getElementById('error')
+       
+        if(password.value != re_password.value){
+            error.style="color:red;"
+            error.innerHTML = "Password does not match"
+        }
+        else{
+           
+            error.innerHTML="Password Matches perfectly"
 
+            error.style="color:green;"
+        }
+     }
+</script>
 </html>
