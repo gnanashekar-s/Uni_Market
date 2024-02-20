@@ -73,7 +73,7 @@ def login_user():
         # Check if the user exists in the database
         cur.execute("SELECT * FROM users WHERE email = %s", [email])
         user = cur.fetchone()
-        if user and check_password_hash(user[4], password):
+        if user and check_password_hash(user[5], password):
             # User exists and password is correct, store user information in session
             session['user_id'] = user[0]
             session['first_name'] = user[1]
