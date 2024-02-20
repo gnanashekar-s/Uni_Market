@@ -17,6 +17,13 @@ def home():
 @app.route("/index")
 def index():
     return render_template('index.html')
+@app.route("/profile")
+def profile():
+    return render_template('profile.html')
+@app.route("/session_clear")
+def clear():
+    session.clear()
+    return render_template('login.html')
 @app.route("/login.html")
 def login():
     return render_template('login.html')
@@ -63,8 +70,10 @@ def login_user():
         if user:
             # User exists, store user information in session
             session['user_id'] = user[0]
+            session['first_name'] = user[1]
+            session['last_name'] = user[2]
             session['username'] = user[3]
-
+            session['email'] = user[4]
             # Redirect to a dashboard or profile page after successful login
             return redirect('/index')
         else:
