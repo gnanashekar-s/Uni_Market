@@ -52,7 +52,6 @@ class LoginForm(FlaskForm):
 def home():
     return render_template('landing_page.html')
 
-
 @app.route('/login.html',methods=['GET','POST'])
 def login():
     form = LoginForm()
@@ -63,13 +62,6 @@ def login():
 def signup():
     form = RegistrationForm()
     
-    if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(firstname = form.firstname.data,lastname = form.lastname.data,username = form.username.data,email = form.email.data,password = hashed_password)
-        db.session.add(user)
-        db.session.commit()
-        return redirect('/login.html')
-        return '<h1>Account created for {}!</h1>'.format(form.username.data)
     return render_template('signup.html',form = form)
 
 

@@ -1,0 +1,204 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusTrade</title>
+</head>
+<style>
+    * {
+        font-family: arial;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+
+    .Signup-form {
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        font-size: 20px;
+        flex-direction: column;
+        align-items: center;
+        height: 60%;
+        width: 400px;
+        padding: 65px 40px;
+        border-radius: 20px;
+    }
+
+    .input-box {
+        display: flex;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .input-box input {
+        width: 100%;
+        height: 40px;
+    }
+
+    .remember-forgot {
+
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 15px;
+        padding: 5px;
+    }
+
+    .Signup-button button {
+        height: 40px;
+        width: 80px;
+        font-size: 15px;
+        color: white;
+        font-family: arial;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(55, 0, 255);
+    }
+
+    .Signup-button button:hover {
+        background-color: black;
+        transition: 0.9s;
+        cursor: pointer;
+    }
+
+    .signup {
+        font-size: 15px;
+    }
+
+    #re-enter {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #pass {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+
+<body>
+    <form class="Signup-form">
+        <h1>REGISTER</h1>
+        <div class="input-box">
+            <input type="text" placeholder="First name" required />
+            <input type="text" placeholder="Last name" required />
+        </div>
+        <div class="input-box">
+            <input type="text" placeholder="Username" required />
+        </div>
+        <div class="input-box">
+            <input type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email"
+                required />
+        </div>
+        <div id="pass" class="input-box">
+            <input oninput="check()" onkeyup="checkPasswordStrength()" id="password" type="password"
+                placeholder="Password" required />
+            <p style="font-size: 15px;" id="password-strength"></p>
+            <div id="password-rules-tooltip" style="font-size: 12px; color: gray; display: none;" required>
+                Password must contain at least 8 characters, including uppercase, lowercase, number, and special
+                character.
+            </div>
+        </div>
+
+        <div id="Re-enter" class="input-box">
+            <input oninput="check()" id="re-password" type="password" placeholder="Re-enter Password" />
+        </div>
+        <div class="Signup-button">
+            <button type="submit">SignUp</button>
+        </div>
+        <div class="signup">
+            <p>Already have an account? <a href="login.html">SignIn here</a></p>
+        </div>
+    </form>
+</body>
+<script>
+    var password = document.getElementById('password')
+    var re_password = document.getElementById('re-password')
+    var error_set = false
+    function check() {
+
+        let reenter = document.getElementById('Re-enter')
+        if (!(error_set)) {
+            let error = document.createElement('p')
+            error.id = "error"
+            error.style = "font-size:10px;"
+            reenter.appendChild(error)
+            error_set = true
+        }
+        let error = document.getElementById('error')
+        if (password.value != re_password.value) {
+            error.style = "color:red;"
+            error.innerHTML = "Password does not match"
+        }
+        else {
+
+            error.innerHTML = "Password Matches perfectly"
+
+            error.style = "color:green;"
+        }
+    }
+    var strengthElement = document.getElementById('password-strength');
+    strengthElement.style.display = 'none';
+    function checkPasswordStrength() {
+        var password = document.getElementById('password').value;
+        var strengthElement = document.getElementById('password-strength');
+        document.getElementById('password').addEventListener('input', function () {
+            strengthElement.style.display = 'block';
+        });
+        document.getElementById('password').addEventListener('focus', function () {
+            strengthElement.style.display = 'block';
+        });
+
+        document.getElementById('password').addEventListener('blur', function () {
+            strengthElement.style.display = 'none';
+        });
+        password.style = "display:block;"
+        // Define the criteria for password strength
+        var minLength = 8;
+        var hasUppercase = /[A-Z]/.test(password);
+        var hasLowercase = /[a-z]/.test(password);
+        var hasNumber = /\d/.test(password);
+        var hasSpecialChar = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password);
+
+        // Calculate strength based on criteria
+        var strength = 0;
+        strength += (password.length >= minLength) ? 1 : 0;
+        strength += (hasUppercase) ? 1 : 0;
+        strength += (hasLowercase) ? 1 : 0;
+        strength += (hasNumber) ? 1 : 0;
+        strength += (hasSpecialChar) ? 1 : 0;
+
+        // Display the password strength
+        if (strength === 5) {
+            strengthElement.textContent = 'Strong';
+            strengthElement.style.color = 'green';
+        } else if (strength >= 3) {
+            strengthElement.textContent = 'Moderate';
+            strengthElement.style.color = 'orange';
+        } else {
+            strengthElement.textContent = 'Weak';
+            strengthElement.style.color = 'red';
+        }
+    }
+    var passwordRulesTooltip = document.getElementById('password-rules-tooltip');
+    var passwordInput = document.getElementById('password');
+
+    passwordInput.addEventListener('focus', function () {
+        passwordRulesTooltip.style.display = 'block';
+    });
+
+    passwordInput.addEventListener('blur', function () {
+        passwordRulesTooltip.style.display = 'none';
+    });
+</script>
+
+</html>

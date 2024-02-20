@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusTrade</title>
+</head>
+<style>
+    *{
+        font-family: arial;
+    }
+    body{
+        margin:0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+    .login-form{
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        font-size: 20px;
+        flex-direction: column;
+        align-items: center;
+        height: 350px;
+        width: 300px;
+        padding: 40px 50px;
+        border-radius: 20px;
+    }
+    .input-box{
+        
+        width: 100%;
+        padding: 5px;
+    }
+    .input-box input{
+        width: 100%;
+        height: 40px;
+    }
+    .remember-forgot{
+
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 15px;
+        padding: 5px;
+    }
+    .login-button button{
+        height: 40px;
+        width: 80px;
+        font-size: 15px;
+        color: white;
+        font-family: arial;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(55, 0, 255);
+    }
+    .login-button button:hover{
+        background-color: black;
+        transition: 0.9s;
+        cursor: pointer;
+    }
+    .signup{
+        font-size: 15px;
+    }
+    .login{
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+    #continue{
+        
+    }
+</style>
+<body>
+    <form class="login-form">
+        
+        <h1>LOGIN</h1>
+        <div id="email" class="input-box">
+            <input type="text" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  placeholder="Email"/>
+        </div>
+        <div id="continue" class="login-button">
+            <button onclick="hideEmail();" type="submit">Continue</button>
+        </div>
+        <div class="login">
+            <div class="input-box">
+                <input type="password" required placeholder="Password"/>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox">Remember Me</label>
+                <a href="#">Forgot Password?</a>
+            </div>
+            <div class="login-button">
+                <button type="submit">Login</button>
+            </div>
+        </div>
+        
+        <div class="signup">
+            <p>Don't have an account? <a href="signup.html">Register here</a></p>
+        </div>
+    </form>
+</body>
+
+<script>
+    //hide email
+     var continue_button = document.getElementById('continue');
+     function hideEmail(){
+        continue_button.remove()
+        let email = document.getElementById('email');
+        email.style.display="none";
+        let  dont_have_account = document.querySelector('.signup');
+        dont_have_account.style.display = "none"; 
+        let password_and_login = document.querySelector('.login');
+        password_and_login.style.display='flex';
+        }
+       
+    
+</script>
+</html>
