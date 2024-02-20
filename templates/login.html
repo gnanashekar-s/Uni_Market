@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UniMarket</title>
+    <title>CampusTrade</title>
 </head>
 <style>
     *{
@@ -79,14 +79,14 @@
         
         <h1>LOGIN</h1>
         <div id="email" class="input-box">
-            <input type="text" placeholder="Email"/>
+            <input type="text" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  placeholder="Email"/>
         </div>
         <div id="continue" class="login-button">
             <button onclick="hideEmail();" type="submit">Continue</button>
         </div>
         <div class="login">
             <div class="input-box">
-                <input type="password" placeholder="Password"/>
+                <input type="password" required placeholder="Password"/>
             </div>
             <div class="remember-forgot">
                 <label><input type="checkbox">Remember Me</label>
@@ -115,6 +115,7 @@
         let password_and_login = document.querySelector('.login');
         password_and_login.style.display='flex';
         }
+       
     
 </script>
 </html>
