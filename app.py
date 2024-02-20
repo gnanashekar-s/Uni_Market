@@ -76,6 +76,8 @@ def login_user():
         if user and check_password_hash(user[4], password):
             # User exists and password is correct, store user information in session
             session['user_id'] = user[0]
+            session['first_name'] = user[1]
+            session['last_name'] = user[2]
             session['username'] = user[3]
 
             # Redirect to a dashboard or profile page after successful login
