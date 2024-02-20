@@ -69,17 +69,15 @@ def login_user():
 
         # Create MySQL cursor
         cur = mysql.connection.cursor()
-        app.secret_key = 'your_secret_key_here'
+
         # Check if the user exists in the database
-        cur.execute("SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
+        cur.execute("SELECT * FROM users WHERE email = %s", [email])
         user = cur.fetchone()
-        if user:
-            # User exists, store user information in session
+        if user and check_password_hash(user[4], password):
+            # User exists and password is correct, store user information in session
             session['user_id'] = user[0]
-            session['first_name'] = user[1]
-            session['last_name'] = user[2]
             session['username'] = user[3]
-            session['email'] = user[4]
+
             # Redirect to a dashboard or profile page after successful login
             return redirect('/index')
         else:
