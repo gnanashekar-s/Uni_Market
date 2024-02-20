@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect
 from flask_mysqldb import MySQL
 from flask import session
+from werkzeug.security import generate_password_hash, check_password_hash
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here' 
 # MySQL Configuration
@@ -31,19 +34,22 @@ def login():
 @app.route("/register", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
-        # Get form data
+        # Get form datagen
         first_name = request.form['first_name']
         last_name = request.form['last_name']
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
 
+        # Encrypt the password
+        hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
+
         # Create MySQL cursor
         cur = mysql.connection.cursor()
 
         # Insert user into database
         cur.execute("INSERT INTO users (first_name, last_name, username, email, password) VALUES (%s, %s, %s, %s, %s)",
-                    (first_name, last_name, username, email, password))
+                    (first_name, last_name, username, email, hashed_password))
 
         # Commit to database
         mysql.connection.commit()
