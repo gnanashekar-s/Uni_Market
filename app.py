@@ -14,7 +14,9 @@ mysql = MySQL(app)
 @app.route("/")
 def home():
     return render_template('landing_page.html')
-
+@app.route("/index")
+def index():
+    return render_template('index.html')
 @app.route("/login.html")
 def login():
     return render_template('login.html')
@@ -64,7 +66,7 @@ def login_user():
             session['username'] = user[3]
 
             # Redirect to a dashboard or profile page after successful login
-            return redirect('/')
+            return redirect('/index')
         else:
             # User not found or incorrect password, redirect to login page with an error message
             return render_template('login.html', error='Invalid email or password')
