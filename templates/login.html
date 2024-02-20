@@ -75,18 +75,18 @@
     }
 </style>
 <body>
-    <form class="login-form">
+    <form  class="login-form" action="/login" method="POST">
         
         <h1>LOGIN</h1>
         <div id="email" class="input-box">
-            <input type="text" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  placeholder="Email"/>
+            <input name="email" type="text" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  placeholder="Email"/>
         </div>
         <div id="continue" class="login-button">
             <button onclick="hideEmail();" type="submit">Continue</button>
         </div>
         <div class="login">
             <div class="input-box">
-                <input type="password" required placeholder="Password"/>
+                <input name="password" type="password" required placeholder="Password"/>
             </div>
             <div class="remember-forgot">
                 <label><input type="checkbox">Remember Me</label>
