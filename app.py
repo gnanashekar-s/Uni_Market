@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect
 from flask_mysqldb import MySQL
-
+from flask import session
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = 'your_secret_key_here' 
 # MySQL Configuration
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'  # Replace with your MySQL username
@@ -54,12 +54,14 @@ def login_user():
 
         # Create MySQL cursor
         cur = mysql.connection.cursor()
-
+        app.secret_key = 'your_secret_key_here'
         # Check if the user exists in the database
         cur.execute("SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
         user = cur.fetchone()
         if user:
             # User exists, store user information in session
+            session['user_id'] = user[0]
+            session['username'] = user[3]
 
             # Redirect to a dashboard or profile page after successful login
             return redirect('/')
