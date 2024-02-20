@@ -58,7 +58,6 @@ def login_user():
         # Check if the user exists in the database
         cur.execute("SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
         user = cur.fetchone()
-
         if user:
             # User exists, store user information in session
 
